@@ -21,14 +21,36 @@ import Data.API.Tools.Mandrill
 import Network.Mandrill.Response
 import Network.Mandrill.TH.Utils
 import Network.Mandrill.TH.Types
+import System.Locale
+import Data.Time.Format
+import Data.Time.Clock
+import qualified Data.Text as Text
 
 -- splice in all our data type definitions
 $(generate utils)
+
+-- created_at 
+-- parseTime defaultTimeLocale "%Y-%m-%d %H:%M:%S%Q" a
+
+type TimeStamp = Maybe UTCTime
+-- 
+inj_TimeStamp :: REP__TimeStamp -> ParserWithErrs TimeStamp
+inj_TimeStamp  (REP__TimeStamp as) = 
+  return $ parseTime defaultTimeLocale "%Y-%m-%d %H:%M:%S%Q" (Text.unpack as)
+
+prj_TimeStamp :: TimeStamp -> REP__TimeStamp
+prj_TimeStamp (Just mp) = REP__TimeStamp $ 
+  Text.pack $ formatTime defaultTimeLocale "%Y-%m-%d %H:%M:%S%Q" mp
+prj_TimeStamp  Nothing   = REP__TimeStamp $ 
+  Text.pack ""
+
 $(generateAPITools utils [enumTool, jsonTool, mandrillTool])
+
 
 $(generate mandrillApi)
 $(generateAPITools mandrillApi [enumTool, jsonTool, mandrillTool])
-
+	
+	
 instance Default Template where
   def = Template
         { _tmpl_slug               = Nothing

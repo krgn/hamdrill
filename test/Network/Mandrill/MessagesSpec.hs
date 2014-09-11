@@ -1,7 +1,6 @@
 module Network.Mandrill.MessagesSpec where
 
-import Test.Hspec
-
+import           Test.Hspec
 import           Network.Mandrill.Types
 import qualified Network.Mandrill.Messages as Messages
 import qualified Data.Text as Text 

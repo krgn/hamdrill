@@ -9,7 +9,6 @@ mandrillApi :: API
 mandrillApi = [api|
 
 usr :: User
-
   // A record for a user
   = record 
     username     :: string
@@ -27,17 +26,17 @@ stat :: Stat
     tag           :: ? Tag
     reputation    :: ? Count
     address       :: ? Email
-    created_at    :: ? string
-    sent          :: Count
-    hard_bounces  :: Count
-    soft_bounces  :: Count
-    rejects       :: Count
-    complaints    :: Count
-    unsubs        :: Count
-    opens         :: Count
-    unique_opens  :: Count
-    clicks        :: Count
-    unique_clicks :: Count
+    created_at    ::   TimeStamp
+    sent          ::   Count
+    hard_bounces  ::   Count
+    soft_bounces  ::   Count
+    rejects       ::   Count
+    complaints    ::   Count
+    unsubs        ::   Count
+    opens         ::   Count
+    unique_opens  ::   Count
+    clicks        ::   Count
+    unique_clicks ::   Count
     stats         :: ? Stats
 
 stats :: Stats
