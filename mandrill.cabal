@@ -1,4 +1,4 @@
-name:                mandrill
+name:                hamdrill
 -- PVP summary:      +-+------- breaking API changes
 --                   | | +----- non-breaking API additions
 --                   | | | +--- code changes with no API change
@@ -9,7 +9,7 @@ license:             MIT
 license-file:        LICENSE
 author:              Karsten Gebbert
 maintainer:          k@ioctl.it
-category:            Network
+category:            Network.API
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:         >=1.10
@@ -18,28 +18,28 @@ library
   -- ghc-options:         -ddump-splices -- dump splices to file: cabal build 2> splics
   hs-source-dirs:      src
   default-language:    Haskell2010
-  exposed-modules:     Network.Mandrill.Types
-                     , Network.Mandrill.Response
-                     , Network.Mandrill.Exports
-                     , Network.Mandrill.Inbound
-                     , Network.Mandrill.Ips
-                     , Network.Mandrill.Messages
-                     , Network.Mandrill.Metadata
-                     , Network.Mandrill.Rejects
-                     , Network.Mandrill.Senders
-                     , Network.Mandrill.Subaccounts
-                     , Network.Mandrill.Tags
-                     , Network.Mandrill.Templates
-                     , Network.Mandrill.Urls
-                     , Network.Mandrill.Users
-                     , Network.Mandrill.Webhooks
-                     , Network.Mandrill.Whitelists
-                     , Network.Mandrill.Monad
+  exposed-modules:     Network.API.Mandrill.Types
+                     , Network.API.Mandrill.Response
+                     , Network.API.Mandrill.Exports
+                     , Network.API.Mandrill.Inbound
+                     , Network.API.Mandrill.Ips
+                     , Network.API.Mandrill.Messages
+                     , Network.API.Mandrill.Metadata
+                     , Network.API.Mandrill.Rejects
+                     , Network.API.Mandrill.Senders
+                     , Network.API.Mandrill.Subaccounts
+                     , Network.API.Mandrill.Tags
+                     , Network.API.Mandrill.Templates
+                     , Network.API.Mandrill.Urls
+                     , Network.API.Mandrill.Users
+                     , Network.API.Mandrill.Webhooks
+                     , Network.API.Mandrill.Whitelists
+                     , Network.API.Mandrill.Monad
   
   -- Modules included in this library but not exported.
-  other-modules:       Network.Mandrill.TH.Utils
-                     , Network.Mandrill.TH.Types
-                     , Network.Mandrill.Utils
+  other-modules:       Network.API.Mandrill.TH.Utils
+                     , Network.API.Mandrill.TH.Types
+                     , Network.API.Mandrill.Utils
                      , Data.API.Tools.Mandrill
 
   -- LANGUAGE extensions used by modules in this package.
@@ -70,25 +70,25 @@ test-suite spec
   
   main-is:             Spec.hs
 
-  other-modules:       Network.Mandrill.Types
-                     , Network.Mandrill.Response
-                     , Network.Mandrill.Utils
+  other-modules:       Network.API.Mandrill.Types
+                     , Network.API.Mandrill.Response
+                     , Network.API.Mandrill.Utils
                      , Data.API.Tools.Mandrill
-                     , Network.Mandrill.Exports
-                     , Network.Mandrill.Inbound
-                     , Network.Mandrill.Ips
-                     , Network.Mandrill.Messages
-                     , Network.Mandrill.Metadata
-                     , Network.Mandrill.Rejects
-                     , Network.Mandrill.Senders
-                     , Network.Mandrill.Subaccounts
-                     , Network.Mandrill.Tags
-                     , Network.Mandrill.Templates
-                     , Network.Mandrill.Urls
-                     , Network.Mandrill.Users
-                     , Network.Mandrill.Webhooks
-                     , Network.Mandrill.Whitelists
-                     , Network.Mandrill.Monad
+                     , Network.API.Mandrill.Exports
+                     , Network.API.Mandrill.Inbound
+                     , Network.API.Mandrill.Ips
+                     , Network.API.Mandrill.Messages
+                     , Network.API.Mandrill.Metadata
+                     , Network.API.Mandrill.Rejects
+                     , Network.API.Mandrill.Senders
+                     , Network.API.Mandrill.Subaccounts
+                     , Network.API.Mandrill.Tags
+                     , Network.API.Mandrill.Templates
+                     , Network.API.Mandrill.Urls
+                     , Network.API.Mandrill.Users
+                     , Network.API.Mandrill.Webhooks
+                     , Network.API.Mandrill.Whitelists
+                     , Network.API.Mandrill.Monad
   
   build-depends:       base >=4.7 && <4.8 
                      , hspec

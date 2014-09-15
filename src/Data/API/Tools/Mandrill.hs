@@ -4,7 +4,7 @@
 module Data.API.Tools.Mandrill
        ( mandrillTool ) where
 
-import Network.Mandrill.Response
+import Network.API.Mandrill.Response
 import Control.Monad (when)
 import Data.API.JSON
 import Data.API.Tools.Combinators
