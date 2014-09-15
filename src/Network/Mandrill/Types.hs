@@ -53,11 +53,11 @@ prj_TimeStamp mp | isJust (_ts_utctime mp) = REP__TimeStamp (Text.pack fts)
               where fts = formatTime defaultTimeLocale "%Y-%m-%d %H:%M:%S%Q" $
                             fromJust $ _ts_utctime mp
 
-$(generateAPITools utils [enumTool, jsonTool, mandrillTool])
+$(generateAPITools utils [enumTool, jsonTool, lensTool, mandrillTool])
 
 
 $(generate mandrillApi)
-$(generateAPITools mandrillApi [enumTool, jsonTool, mandrillTool])
+$(generateAPITools mandrillApi [enumTool, jsonTool, lensTool, mandrillTool])
 
 instance Default Template where
   def = Template
