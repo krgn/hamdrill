@@ -31,6 +31,12 @@ instance Default ApiError where
       message = ""
     }
 
+instance ToJSON ApiError where
+  toJSON e = object [ "status"  .= status  e
+                    , "code"    .= code    e 
+                    , "name"    .= name    e
+                    , "message" .= message e ] 
+
 instance FromJSON ApiError where
   parseJSON (Object v) = ApiError <$>
                          v .: "status" <*>
