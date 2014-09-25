@@ -43,7 +43,7 @@ library
                      , Data.API.Tools.Mandrill
 
   -- LANGUAGE extensions used by modules in this package.
-  other-extensions:    TemplateHaskell,
+  other-extensions:    TemplateHaskell
                      , DeriveDataTypeable
                      , GeneralizedNewtypeDeriving
                      , FlexibleInstances
