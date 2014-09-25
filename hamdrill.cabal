@@ -2,7 +2,7 @@ name:                hamdrill
 -- PVP summary:      +-+------- breaking API changes
 --                   | | +----- non-breaking API additions
 --                   | | | +--- code changes with no API change
-version:             1.0.0.3
+version:             1.0.0.4
 -- synopsis:            
 -- description:         
 license:             MIT

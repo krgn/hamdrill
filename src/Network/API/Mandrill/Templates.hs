@@ -67,7 +67,7 @@ delete n =
 
 -- | Return a list of all the templates available to this user
 list :: (MonadIO m) => 
-       Label -> 
+       Maybe Label -> 
        MandrillT m (Either ApiError [Template])
 list l = performRequest "/templates/list.json" [ "label" .= l ]
 
