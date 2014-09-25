@@ -26,10 +26,10 @@ add e c a =
 -- entries that have expired are excluded from the results; set 
 -- `IncExpired` to true to include them.
 list :: (MonadIO m)  =>
-       Email        -> 
+       Maybe Email  -> 
        IncExpired   -> 
        SubaccountId -> 
-       MandrillT m (Either ApiError Reject)
+       MandrillT m (Either ApiError [Reject])
 list e i s =
   performRequest "/rejects/list.json" $
     [ "email"           .= e
