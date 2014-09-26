@@ -10,7 +10,7 @@ import Network.API.Mandrill.Types
 -- | Get the list of subaccounts defined for the account, 
 -- optionally filtered by a prefix
 list :: (MonadIO m) =>
-       Query -> 
+       Maybe Query -> 
        MandrillT m (Either ApiError [Subaccount])
 list q = performRequest "/subaccounts/list.json" [ "q" .= q ]
 
