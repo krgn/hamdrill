@@ -333,7 +333,7 @@ msg :: Message
 delivery :: DeliveryStatus
   // The response object when sending messages
   = record
-    email         ::   Email
+    email         :: ? Email
     status        ::   SendStatus
     reject_reason :: ? RejectReason
     _id           ::   MessageId
