@@ -164,16 +164,7 @@ send_status :: SendStatus
 
 reason :: RejectReason
   // Reason enum when message was rejected
-  = enum
-    | hard_bounce
-    | soft_bounce
-    | spam
-    | unsub
-    | custom
-    | invalid_sender
-    | invalid 
-    | test_mode_limit
-    | rule 
+  = basic string
 
 state :: MetadataState
   // enum for status

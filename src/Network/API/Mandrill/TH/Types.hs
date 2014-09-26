@@ -53,17 +53,17 @@ sender :: Sender
   // a stats record 
   = record 
     address       :: Email
-    created_at    :: TimeStamp
-    sent          :: Count
-    hard_bounces  :: Count
-    soft_bounces  :: Count
-    rejects       :: Count
-    complaints    :: Count
-    unsubs        :: Count
-    opens         :: Count
-    unique_opens  :: Count
-    clicks        :: Count
-    unique_clicks :: Count
+    created_at    :: ? TimeStamp
+    sent          :: ? Count
+    hard_bounces  :: ? Count
+    soft_bounces  :: ? Count
+    rejects       :: ? Count
+    complaints    :: ? Count
+    unsubs        :: ? Count
+    opens         :: ? Count
+    unique_opens  :: ? Count
+    clicks        :: ? Count
+    unique_clicks :: ? Count
     stats         :: ? Stats
 
 metadata :: Metadata
@@ -83,8 +83,8 @@ domrec :: DomainRecord
   // a domain
   = record
     domain         :: Url
-    created_at     :: TimeStamp
-    last_tested_at :: TimeStamp
+    created_at     :: ? TimeStamp
+    last_tested_at :: ? TimeStamp
     spf            :: ? Record
     dkim           :: ? Record
     verified_at    :: ? TimeStamp
@@ -182,7 +182,7 @@ hook :: Webhook
     description  :: Description
     auth_key     :: AuthKey
     events       :: [MessageEvent]
-    created_at   :: TimeStamp
+    created_at   :: ? TimeStamp
     last_sent_at :: ? TimeStamp
     batches_sent :: Count
     events_sent  :: Count
@@ -192,24 +192,24 @@ acc  :: Subaccount
   // a subaccount
   = record
     id            :: ? SubaccountId
-    name          :: Name
+    name          :: ? Name
     custom_quota  :: Count
     hourly_quota  :: ? Count
-    status        :: AccountStatus
-    reputation    :: Count
+    status        :: ? AccountStatus
+    reputation    :: ? Count
     created_at    :: ? TimeStamp
     first_sent_at :: ? TimeStamp
     send_hourly   :: ? Count
-    sent_weekly   :: Count 
-    sent_monthly  :: Count
-    sent_total    :: Count
+    sent_weekly   :: ? Count 
+    sent_monthly  :: ? Count
+    sent_total    :: ? Count
     last_30_days  :: ? Stat 
 
 indom :: InboundDomain
   // an inbound domain record
   = record 
     domain     :: Url
-    created_at :: TimeStamp
+    created_at :: ? TimeStamp
     valid_mx   :: boolean
 
 inroute :: InboundRoute
@@ -224,7 +224,7 @@ export :: Export
   // an export
   = record 
     id          :: ExportId
-    created_at  :: TimeStamp
+    created_at  :: ? TimeStamp
     finished_at :: ? TimeStamp
     type        :: ExportType
     state       :: ExportState
@@ -236,12 +236,12 @@ reject :: Reject
     email         :: Email
     reason        :: RejectReason
     detail        :: string
-    created_at    :: TimeStamp
-    last_event_at :: TimeStamp
-    expires_at    :: TimeStamp
-    expired       :: string 
-    sender        :: Stat 
-    subaccount    :: Subaccount
+    created_at    :: ? TimeStamp
+    last_event_at :: ? TimeStamp
+    expires_at    :: ? TimeStamp
+    expired       :: boolean
+    sender        :: ? Stat 
+    subaccount    :: ? Subaccount
 
 whitelist :: Whitelist
   // a whitelist entry
@@ -359,7 +359,7 @@ sched :: Scheduled
   // a scheduled message
   = record
     _id        :: MessageId
-    created_at :: TimeStamp
+    created_at :: ? TimeStamp
     send_at    :: TimeStamp
     from_email :: Email
     to         :: Email
