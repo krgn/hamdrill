@@ -27,9 +27,9 @@ test_sendRaw =
   describe "/inbound/send-raw.json" $
     it "should send a raw message" $ do
       raw <- getEnv "MANDRILL_API_KEY"
-      let to = TO_single Recipient { _recipient_name  = "hello"
-                                   , _recipient_email = "hallo@hello.org"
-                                   , _recipient_type  = Nothing }
+      let to = [ Recipient { _recipient_name  = "hello"
+                           , _recipient_email = "hallo@hello.org"
+                           , _recipient_type  = Nothing } ]
       resp <- runMandrill (ApiKey $ Text.pack raw) $
         Inbound.sendRaw "hello" to "hhallo@asd.org" "example.org" "123.123.123.123"
       resp `shouldSatisfy` isRight

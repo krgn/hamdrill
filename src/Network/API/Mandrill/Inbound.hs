@@ -79,7 +79,7 @@ deleteRoute i = performRequest "/inbound/delete-route.json" [ "id" .= i ]
 -- up, and send it to the inbound hook exactly as if it had been sent over SMTP
 sendRaw :: (MonadIO m) =>
           RawMessage -> 
-          To -> 
+          [Recipient] -> 
           Email -> 
           Helo -> 
           ClientAddress -> 

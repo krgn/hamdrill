@@ -112,7 +112,7 @@ sendRaw :: (MonadIO m)   =>
           RawMessage    -> 
           Email         -> 
           Name          -> 
-          To            -> 
+          [Recipient]   -> 
           MessageConfig -> 
           MandrillT m (Either ApiError [DeliveryStatus])
 sendRaw raw e n to c = 

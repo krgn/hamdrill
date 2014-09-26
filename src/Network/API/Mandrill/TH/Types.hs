@@ -282,12 +282,6 @@ rmvar :: RecipientMergeVar
     recipient :: Email
     vars      :: [MergeVar] 
 
-to :: To
-  // a way to encode the possibility of a single or multiple recipient addresses 
-  = union
-    | single   :: Recipient
-    | multiple :: [Recipient]
-
 conf :: MessageConfig
   // config
   = record 
@@ -304,7 +298,7 @@ msg :: Message
     subject                   :: ? string
     from_email                :: ? Email
     from_name                 :: ? string
-    to                        :: ? To
+    to                        :: ? [Recipient]
     important                 :: ? boolean
     track_opens               :: ? boolean
     track_clicks              :: ? boolean

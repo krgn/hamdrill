@@ -35,11 +35,11 @@ test_send =
     it "should send a message with valid key" $ do
       raw <- getEnv "MANDRILL_API_KEY"
       now <- getCurrentTime
-      let rcpt = TO_single Recipient 
+      let rcpt = [ Recipient 
                    { _recipient_email = "karsten@null2.net"
                    , _recipient_name = "lotta luft"
                    , _recipient_type = Nothing
-                   }
+                   } ]
 
           msg = def { _msg_to      = Just rcpt 
                     , _msg_subject = Just "test"
@@ -63,10 +63,9 @@ test_sendTemplate =
       raw <- getEnv "MANDRILL_API_KEY"
       now <- getCurrentTime
       let tmpl = def { _tmpl_name = "test" }
-          rcpt = TO_single 
-                     Recipient { _recipient_email = "karsten@null2.net"
-                               , _recipient_name  = "lotta luft"
-                               , _recipient_type  = Nothing }
+          rcpt =[ Recipient { _recipient_email = "karsten@null2.net"
+                             , _recipient_name  = "lotta luft"
+                             , _recipient_type  = Nothing } ]
 
           msg = def { _msg_to      = Just rcpt 
                     , _msg_subject = Just "test"
@@ -173,9 +172,9 @@ test_sendRaw =
       let msg = "hahaha"
           email = "karsten@kurt.net"
           n    = "karsten kurt"
-          to = TO_single $ Recipient { _recipient_email = "karsten@null2.net"
-                                     , _recipient_name  = "karste krut"
-                                     , _recipient_type  = Nothing }
+          to = [ Recipient { _recipient_email = "karsten@null2.net"
+                           , _recipient_name  = "karste krut"
+                           , _recipient_type  = Nothing } ]
           cfg = MessageConfig {
                   _conf_async   = False
                 , _conf_ip_pool = ""
@@ -194,11 +193,11 @@ test_listScheduled =
       now <- getCurrentTime
       let email = "karsten@kurt.net"
 
-          rcpt = TO_single Recipient 
+          rcpt = [ Recipient 
                    { _recipient_email = "karsten@null2.net"
                    , _recipient_name = "lotta luft"
                    , _recipient_type = Nothing
-                   }
+                   } ]
 
           msg = def { _msg_to      = Just rcpt 
                     , _msg_subject = Just "test"
@@ -222,11 +221,11 @@ test_cancelScheduled =
     it "should cancel a scheduled message" $ do
       raw <- getEnv "MANDRILL_API_KEY"
       now <- getCurrentTime
-      let rcpt = TO_single Recipient 
+      let rcpt = [ Recipient 
                    { _recipient_email = "karsten@null2.net"
                    , _recipient_name = "lotta luft"
                    , _recipient_type = Nothing
-                   }
+                   } ]
 
           msg = def { _msg_to      = Just rcpt 
                     , _msg_from_email = Just "karsten@kurt.net"
