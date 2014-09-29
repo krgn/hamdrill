@@ -235,7 +235,7 @@ reject :: Reject
   = record 
     email         :: Email
     reason        :: RejectReason
-    detail        :: string
+    detail        :: ? string
     created_at    :: ? TimeStamp
     last_event_at :: ? TimeStamp
     expires_at    :: ? TimeStamp
